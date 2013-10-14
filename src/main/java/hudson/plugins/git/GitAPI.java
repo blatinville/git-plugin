@@ -62,7 +62,7 @@ public class GitAPI implements IGitAPI {
         this.listener = listener;
         this.gitExe = gitExe;
         this.environment = environment;
-        this.reference = reference;
+        this.reference = environment.expand(reference);
 
         launcher = new LocalLauncher(GitSCM.VERBOSE?listener:TaskListener.NULL);
     }
